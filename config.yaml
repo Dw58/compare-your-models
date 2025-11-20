@@ -1,0 +1,123 @@
+# Python Model Benchmark Configuration
+
+# Models to evaluate
+models:
+  - name: "gpt-4-turbo"
+    provider: "openai"
+    api_key_env: "OPENAI_API_KEY"
+    model_id: "gpt-4-turbo-preview"
+    enabled: true
+
+  - name: "gpt-3.5-turbo"
+    provider: "openai"
+    api_key_env: "OPENAI_API_KEY"
+    model_id: "gpt-3.5-turbo"
+    enabled: true
+
+  - name: "claude-3-opus"
+    provider: "anthropic"
+    api_key_env: "ANTHROPIC_API_KEY"
+    model_id: "claude-3-opus-20240229"
+    enabled: true
+
+  - name: "claude-3-sonnet"
+    provider: "anthropic"
+    api_key_env: "ANTHROPIC_API_KEY"
+    model_id: "claude-3-5-sonnet-20240620"
+    enabled: true
+
+  - name: "your-fine-tuned-model"
+    provider: "local"
+    endpoint: "http://localhost:8000/v1/completions"
+    api_key_env: "LOCAL_API_KEY"
+    enabled: false
+
+# Execution settings
+execution:
+  timeout: 5.0  # seconds per test case
+  memory_limit: "512m"
+  cpu_limit: 1.0
+  max_retries: 2
+  sandbox_image: "python:3.11-slim"
+
+# Scoring weights
+scoring:
+  weights:
+    correctness: 0.40
+    speed: 0.20
+    quality: 0.25
+    efficiency: 0.15
+
+  quality_metrics:
+    - pylint
+    - complexity
+    - type_hints
+    - docstrings
+
+# Benchmark settings
+benchmark:
+  tasks_per_difficulty:
+    easy: 10      # Run 10 easy tasks per evaluation
+    medium: 10
+    hard: 5
+    extreme: 5
+
+  parallel_execution: true
+  max_concurrent_models: 3
+  cache_results: true
+
+# Database
+database:
+  type: "sqlite"  # or "postgresql"
+  path: "benchmarks/results/benchmark.db"
+  # For PostgreSQL:
+  # host: "localhost"
+  # port: 5432
+  # name: "benchmark_db"
+  # user_env: "DB_USER"
+  # password_env: "DB_PASSWORD"
+
+# Dashboard
+dashboard:
+  host: "0.0.0.0"
+  port: 8501
+  theme: "light"  # or "dark"
+  auto_refresh: true
+  refresh_interval: 30  # seconds
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/benchmark.log"
+  console: true
+
+# Rate limiting (to avoid API throttling)
+rate_limiting:
+  openai:
+    requests_per_minute: 50
+    tokens_per_minute: 90000
+  anthropic:
+    requests_per_minute: 50
+    tokens_per_minute: 100000
+  local:
+    requests_per_minute: 1000
+
+# Cost tracking
+cost_tracking:
+  enabled: true
+  budget_alert: 50.00  # USD
+
+  pricing:  # per 1M tokens
+    gpt-4-turbo:
+      input: 10.00
+      output: 30.00
+    gpt-3.5-turbo:
+      input: 0.50
+      output: 1.50
+    claude-3-opus:
+      input: 15.00
+      output: 75.00
+    claude-3-sonnet:
+      input: 3.00
+      output: 15.00

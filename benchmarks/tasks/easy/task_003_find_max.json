@@ -1,0 +1,53 @@
+{
+  "id": "easy_003",
+  "language": "python",
+  "difficulty": "easy",
+  "category": "list_operations",
+  "title": "Find Maximum Number",
+  "prompt": "Write a function called `find_max` that takes a list of numbers and returns the maximum value.\n\nFunction signature:\n```python\ndef find_max(numbers: List[int]) -> int:\n    pass\n```\n\nExamples:\n- Input: [1, 5, 3, 9, 2] → Output: 9\n- Input: [-10, -5, -20] → Output: -5\n- Input: [42] → Output: 42\n\nNote: You can assume the list will never be empty.",
+  "test_cases": [
+    {
+      "input": {"numbers": [1, 5, 3, 9, 2]},
+      "expected_output": 9,
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "maximum in middle"
+    },
+    {
+      "input": {"numbers": [10, 5, 3, 2, 1]},
+      "expected_output": 10,
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "maximum at start"
+    },
+    {
+      "input": {"numbers": [1, 2, 3, 4, 5]},
+      "expected_output": 5,
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "maximum at end"
+    },
+    {
+      "input": {"numbers": [-10, -5, -20]},
+      "expected_output": -5,
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "all negative numbers"
+    },
+    {
+      "input": {"numbers": [42]},
+      "expected_output": 42,
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "single element"
+    }
+  ],
+  "reference_solution": "from typing import List\n\ndef find_max(numbers: List[int]) -> int:\n    \"\"\"Return the maximum value from the list.\"\"\"\n    return max(numbers)",
+  "metadata": {
+    "python_version": "3.8+",
+    "allowed_imports": ["typing"],
+    "tags": ["lists", "max", "basic"],
+    "created_at": "2025-01-21",
+    "author": "benchmark-team"
+  }
+}

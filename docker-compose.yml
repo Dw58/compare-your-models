@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  # Code execution sandbox
+  sandbox:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: python-benchmark-sandbox:latest
+    container_name: python-sandbox
+    networks:
+      - benchmark-network
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./tmp:/tmp:rw
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=100m
+
+  # Dashboard
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: python-benchmark-dashboard:latest
+    container_name: benchmark-dashboard
+    command: streamlit run src/dashboard/app.py
+    ports:
+      - "8501:8501"
+    networks:
+      - benchmark-network
+    environment:
+      - PYTHONUNBUFFERED=1
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src:ro
+      - ./benchmarks:/app/benchmarks:ro
+      - ./config.yaml:/app/config.yaml:ro
+    depends_on:
+      - sandbox
+
+  # Optional: PostgreSQL database
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: benchmark-db
+  #   environment:
+  #     POSTGRES_USER: ${DB_USER}
+  #     POSTGRES_PASSWORD: ${DB_PASSWORD}
+  #     POSTGRES_DB: ${DB_NAME}
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - benchmark-network
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+
+networks:
+  benchmark-network:
+    driver: bridge
+
+# volumes:
+#   postgres-data:

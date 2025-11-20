@@ -1,0 +1,53 @@
+{
+  "id": "easy_002",
+  "language": "python",
+  "difficulty": "easy",
+  "category": "list_operations",
+  "title": "Sum of Numbers in List",
+  "prompt": "Write a function called `sum_list` that takes a list of numbers and returns their sum.\n\nFunction signature:\n```python\ndef sum_list(numbers: List[int]) -> int:\n    pass\n```\n\nExamples:\n- Input: [1, 2, 3, 4, 5] → Output: 15\n- Input: [] → Output: 0\n- Input: [-1, -2, -3] → Output: -6\n- Input: [100] → Output: 100",
+  "test_cases": [
+    {
+      "input": {"numbers": [1, 2, 3, 4, 5]},
+      "expected_output": 15,
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "positive numbers"
+    },
+    {
+      "input": {"numbers": []},
+      "expected_output": 0,
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "empty list edge case"
+    },
+    {
+      "input": {"numbers": [-1, -2, -3]},
+      "expected_output": -6,
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "negative numbers"
+    },
+    {
+      "input": {"numbers": [100]},
+      "expected_output": 100,
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "single element"
+    },
+    {
+      "input": {"numbers": [10, -5, 3, -2, 7]},
+      "expected_output": 13,
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "mixed positive and negative"
+    }
+  ],
+  "reference_solution": "from typing import List\n\ndef sum_list(numbers: List[int]) -> int:\n    \"\"\"Return the sum of all numbers in the list.\"\"\"\n    return sum(numbers)",
+  "metadata": {
+    "python_version": "3.8+",
+    "allowed_imports": ["typing"],
+    "tags": ["lists", "sum", "basic"],
+    "created_at": "2025-01-21",
+    "author": "benchmark-team"
+  }
+}

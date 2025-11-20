@@ -1,0 +1,53 @@
+{
+  "id": "easy_001",
+  "language": "python",
+  "difficulty": "easy",
+  "category": "string_manipulation",
+  "title": "Reverse Words in String",
+  "prompt": "Write a function called `reverse_words` that takes a string as input and returns a new string with the words in reverse order.\n\nFunction signature:\n```python\ndef reverse_words(s: str) -> str:\n    pass\n```\n\nExamples:\n- Input: \"hello world\" → Output: \"world hello\"\n- Input: \"python is awesome\" → Output: \"awesome is python\"\n- Input: \"\" → Output: \"\"\n- Input: \"   spaces   everywhere   \" → Output: \"everywhere spaces\"\n\nNotes:\n- Words are separated by spaces\n- Multiple spaces should be treated as single separator\n- Leading/trailing spaces should be ignored",
+  "test_cases": [
+    {
+      "input": {"s": "hello world"},
+      "expected_output": "world hello",
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "basic two-word case"
+    },
+    {
+      "input": {"s": "python is awesome"},
+      "expected_output": "awesome is python",
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "three words"
+    },
+    {
+      "input": {"s": ""},
+      "expected_output": "",
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "empty string edge case"
+    },
+    {
+      "input": {"s": "single"},
+      "expected_output": "single",
+      "timeout": 0.5,
+      "weight": 1.0,
+      "description": "single word"
+    },
+    {
+      "input": {"s": "  multiple   spaces   here  "},
+      "expected_output": "here spaces multiple",
+      "timeout": 0.5,
+      "weight": 1.5,
+      "description": "multiple spaces and leading/trailing spaces"
+    }
+  ],
+  "reference_solution": "def reverse_words(s: str) -> str:\n    \"\"\"Reverse the order of words in a string.\"\"\"\n    return ' '.join(s.split()[::-1])",
+  "metadata": {
+    "python_version": "3.8+",
+    "allowed_imports": [],
+    "tags": ["strings", "basic", "split", "reverse"],
+    "created_at": "2025-01-21",
+    "author": "benchmark-team"
+  }
+}
